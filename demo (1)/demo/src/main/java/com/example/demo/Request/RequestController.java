@@ -78,10 +78,9 @@ private final CustomerRepository customerRepository;
 class Form{
     private Request request;
     private Long idCustomer;
-      public Request getRequest(){return request;}
-    public Long getIdCustomer(){return idCustomer;}
     private Long idServiceType;
-
+   public Request getRequest(){return request;}
+    public Long getIdCustomer(){return idCustomer;}
     public Long getIdServiceType() {
         return idServiceType;
     }
