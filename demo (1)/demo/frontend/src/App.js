@@ -10,6 +10,8 @@ import Login from './component/Login';
 import Register from './component/Register';
 import NewRequest from './component/NewRequest';
 import ServiceType from './component/ServiceType';
+import Navbar from './component/Navbar';
+import Home from './component/Home';
 function App() {
  
   return (
@@ -18,20 +20,22 @@ function App() {
     
       <div>
       <Routes>
-      
+   
           <Route path="/" element={<MaintenanceServices />} />
+          <Route path="/maintanseServices/:phoneNo" element={<MaintenanceServices />} />
           <Route path="/customers" element={<Customers />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/login/:phoneNo" element={<Customer />} />
+          <Route path="/myAccount" element={<Customer />} />
           <Route path="/Reviews" element={<Reviews />} />
           <Route path="/Reviews/1" element={<Review />} />
-          <Route path="/Requests/:phoneNo" element={<Requests />} />
+          <Route path="/myRequests" element={<Requests />} />
           {/* <Route path="/Requests/:phoneNo" element={<Request />} /> */}
-          <Route path="/Register" element={<Register />} />
-          <Route path="/new_request/:phoneNo" element={<NewRequest />} />
-          <Route path="new_request/serviceType/:phoneNo" element={<ServiceType />} />
-          
-       
+          <Route path="/register" element={<Register />} />
+          <Route path="/new_request" element={<NewRequest />} />
+          <Route path="/services/:service" element={<ServiceType />} />
+          {/* <Route path="new_request/serviceType/:phoneNo" element={<ServiceType />} /> */}
+          <Route path="/navbar" element={<Navbar />} />
+          <Route path="/home" element={<Home />} />
       </Routes>
       </div>
 
