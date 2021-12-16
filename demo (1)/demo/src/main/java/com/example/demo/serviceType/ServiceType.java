@@ -26,7 +26,7 @@ public class ServiceType {
     private String imgUrl;
 
     @JsonIgnore
-    @ManyToMany(mappedBy = "service_enrolled")
+    @OneToMany(mappedBy = "serviceType")
     private List<Request> request=new ArrayList<>();
 
     public ServiceType(){}

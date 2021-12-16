@@ -17,20 +17,14 @@ public class Request {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idRequest ;
-    private String  state ;
+    private String  requestState ;
     private Date date;
     private String time;
     private String comment;
 
 
-    @ManyToMany
-    @JoinTable (
-            name="service_enrolled",
-            joinColumns=@JoinColumn(name="idRequest"),
-            inverseJoinColumns = @JoinColumn(name = "idServiceType")
-
-    )
-    private List<ServiceType> service_enrolled=new ArrayList<>();
+    @ManyToOne(fetch=FetchType.EAGER,optional = true)
+    private ServiceType serviceType;
 
 
     @ManyToOne(fetch=FetchType.EAGER,optional = true)
@@ -57,9 +51,9 @@ public class Request {
 public Request(){}
 
 
-    public Request(Long idRequest, String state, String comment) {
+    public Request(Long idRequest, String requestState, String comment) {
         this.idRequest = idRequest;
-        this.state = state;
+        this.requestState = requestState;
         this.comment = comment;
 
     }
@@ -71,20 +65,20 @@ public Request(){}
         this.idRequest = idRequest;
     }
 
-    public String getState() {
-        return state;
+    public String getRequestState() {
+        return requestState;
     }
 
-    public void setState(String state) {
-        this.state = state;
+    public void setRequestState(String requestState) {
+        this.requestState = requestState;
     }
 
-    public List<ServiceType> getService_enrolled() {
-        return service_enrolled;
+    public ServiceType getServiceType() {
+        return serviceType;
     }
 
-    public void setService_enrolled(List<ServiceType> service_enrolled) {
-        this.service_enrolled = service_enrolled;
+    public void setServiceType(ServiceType serviceType) {
+        this.serviceType = serviceType;
     }
 
     public String getComment() {
@@ -103,19 +97,20 @@ public Request(){}
         this.customer = customer;
     }
 
-    public  void enrollService(ServiceType serviceType){
-        service_enrolled.add(serviceType);
-    }
+//    public  void enrollService(ServiceType serviceType){
+//        service_enrolled.add(serviceType);
+//    }
 
     @Override
     public String toString() {
         return "Request{" +
                 "idRequest=" + idRequest +
-                ", state='" + state + '\'' +
+                ", requestState='" + requestState + '\'' +
                 ", date=" + date +
                 ", time='" + time + '\'' +
                 ", comment='" + comment + '\'' +
-                ", service_enrolled=" + service_enrolled +
+//                ", service_enrolled=" + service_enrolled +
+                "Service Type=" +serviceType+
                 ", customer=" + customer +
                 '}';
     }

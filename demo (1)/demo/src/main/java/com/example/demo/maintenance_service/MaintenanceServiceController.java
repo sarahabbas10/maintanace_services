@@ -1,6 +1,7 @@
 package com.example.demo.maintenance_service;
 
 import com.example.demo.Request.Request;
+import com.example.demo.review.Review;
 import com.example.demo.serviceType.ServiceType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -48,5 +49,13 @@ public class MaintenanceServiceController {
     public List<ServiceType> getAllServiceType(@PathVariable String name){
         return maintenanceService_service.getAllServiceType(name);
     }
+
+
+
+    @GetMapping("/reviews/{name}")
+    public List<Review> getAllReview(@PathVariable String name){
+        return maintenanceService_service.getAllReview(name);
+    }
+
 
 }

@@ -16,7 +16,6 @@ public class Review {
 
 
     @ManyToOne(fetch=FetchType.EAGER,optional = true)
-    @JsonIgnore
     private MaintenanceService maintenanceService;
 
     @ManyToOne(fetch=FetchType.EAGER,optional = true)

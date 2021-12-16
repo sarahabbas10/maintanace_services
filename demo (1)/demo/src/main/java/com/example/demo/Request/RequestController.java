@@ -55,7 +55,7 @@ private final CustomerRepository customerRepository;
         form.getRequest().setCustomer(customer);
 
         ServiceType serviceType=serviceTypeRepository.findById(form.getIdServiceType()).get();
-        form.getRequest().enrollService(serviceType);
+        form.getRequest().setServiceType(serviceType);
 
         return requestRepository.save(form.getRequest());
 

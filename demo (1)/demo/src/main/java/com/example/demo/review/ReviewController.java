@@ -19,6 +19,11 @@ public class ReviewController {
         return reviewService.getReviewsList();
     }
 
+    @GetMapping("/{name}")
+    public List<Review> getReviewsListForMaintenance(@PathVariable String name){
+        return reviewService.getReviewsListByMaintenanceName(name);
+    }
+
     @DeleteMapping("/{id}")
     public void deleteReview(@PathVariable String id){
         reviewService.deleteReview(id);

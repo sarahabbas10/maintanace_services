@@ -26,6 +26,10 @@ public class ReviewService {
             return reviewRepository.findAll();
     }
 
+    public List<Review> getReviewsListByMaintenanceName(String name){
+        return reviewRepository.findByMaintenanceService(name);
+    }
+
     public void deleteReview(String id){
         Long review_id = Long.parseLong(id);
         reviewRepository.deleteById(review_id);

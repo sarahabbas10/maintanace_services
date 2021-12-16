@@ -2,6 +2,7 @@ package com.example.demo.maintenance_service;
 
 import com.example.demo.review.Review;
 import com.example.demo.serviceType.ServiceType;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -13,46 +14,13 @@ public class MaintenanceService {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idMaintenanceService ;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     private String name;
-
-    public String getImgUrl() {
-        return imgUrl;
-    }
-
-    public void setImgUrl(String imgUrl) {
-        this.imgUrl = imgUrl;
-    }
-
     private String imgUrl;
-
-    public List<ServiceType> getServiceTypes() {
-        return serviceTypes;
-    }
-
-    public void setServiceTypes(List<ServiceType> serviceTypes) {
-        this.serviceTypes = serviceTypes;
-    }
 
     @OneToMany(mappedBy = "maintenanceService")
     private List<ServiceType> serviceTypes=new ArrayList<>();
 
-    public List<Review> getReviews() {
-        return reviews;
-    }
-
-    public void setReviews(List<Review> reviews) {
-        this.reviews = reviews;
-    }
-
+    @JsonIgnore
     @OneToMany(mappedBy = "maintenanceService")
     private List<Review> reviews=new ArrayList<>();
 
@@ -64,6 +32,23 @@ public class MaintenanceService {
 
     }
 
+    //getter and setter
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+    public List<ServiceType> getServiceTypes() {
+        return serviceTypes;
+    }
+
+    public void setServiceTypes(List<ServiceType> serviceTypes) {
+        this.serviceTypes = serviceTypes;
+    }
+
+
     public long getIdService() {
         return idMaintenanceService;
     }
@@ -72,6 +57,20 @@ public class MaintenanceService {
         this.idMaintenanceService = idMaintenanceService;
     }
 
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
+    }
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
     @Override
     public String toString() {
         return "MaintenanceService{" +

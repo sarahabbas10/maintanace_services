@@ -2,6 +2,7 @@ package com.example.demo.maintenance_service;
 
 import com.example.demo.Request.Request;
 import com.example.demo.customer.Customer;
+import com.example.demo.review.Review;
 import com.example.demo.serviceType.ServiceType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -47,5 +48,10 @@ public class MaintenanceService_Service {
     public List<ServiceType> getAllServiceType(String  name){
         MaintenanceService maintenanceService=maintenanceServiceRepository.findByName(name);
         return maintenanceService.getServiceTypes();
+    }
+
+    public List<Review> getAllReview(String  name){
+        MaintenanceService maintenanceService=maintenanceServiceRepository.findByName(name);
+        return maintenanceService.getReviews();
     }
 }
