@@ -31,10 +31,11 @@ public class ServiceType {
 
     public ServiceType(){}
 
-    public ServiceType(Long idServiceType, String name, MaintenanceService maintenanceService) {
+    public ServiceType(Long idServiceType, String name,String imgUrl) {
         this.idServiceType = idServiceType;
         this.name = name;
-        this.maintenanceService=maintenanceService;
+
+        this.imgUrl=imgUrl;
     }
 
 
@@ -92,26 +93,3 @@ public class ServiceType {
 
 }
 
-
-//
-//    @PostMapping()
-//    public Service addService(@RequestBody Form form){
-//        return servicesService.saveAppointment(form.getAppointment(),form.getIdPatient(),form.getIdDoctor(),form.getIdTime());
-//    }
-//
-//}
-//
-//class Form{
-//    private Appointment appointment;
-//    private Long idPatient;
-//    private Long idDoctor;
-//    private Long idTime;
-//
-//    public Long getIdDoctor() {return idDoctor;}
-//    public Appointment getAppointment(){return appointment;}
-//    public Long getIdPatient(){return idPatient;}
-//    public Long getIdTime() {return idTime;}
-//
-//
-//
-//}

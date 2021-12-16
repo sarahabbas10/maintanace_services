@@ -9,7 +9,7 @@ import electronic from './imgs/electronic.jpg'
 import air from './imgs/air2.jpg'
 import header1 from './imgs/header1.jpg'
 import Sterilization from './imgs/Sterilization.png'
- 
+
 import s1 from './imgs/s1.png'
 import s2 from './imgs/s2.png'
 import s3 from './imgs/s3.png'
@@ -39,7 +39,6 @@ const Home = () => {
       }
    })
 
-   console.log(state.customer);
 
    useEffect(() => {
       axios
@@ -110,29 +109,31 @@ const Home = () => {
    return (
       <>
          <Navbar />
-         <div className='divHeader'>
+         <div >
 
             <Carousel>
+
                <Carousel.Item>
                   <img
-                     className="d-block w-100"
+                     id="header"
+                     className="d-block w-100 "
                      src={slide1}
                      alt="First slide"
+                     style={{ "height": 510 }}
                   />
                   <Carousel.Caption>
-
                      <h2>We love working</h2>
                      <h4>Maintenance service</h4>
-                     <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years</p>
-                     <a class="blue_bt" href="#">See Our Service</a>
 
                   </Carousel.Caption>
                </Carousel.Item>
                <Carousel.Item>
                   <img
-                     className="d-block w-100"
+                     id="header"
+                     className="d-block w-100 "
                      src={header1}
                      alt="Second slide"
+                     style={{ "height": 510 }}
 
                   />
 
@@ -143,11 +144,16 @@ const Home = () => {
                <Carousel.Item>
 
                   <img
+                     id="header"
                      className="d-block w-100"
                      src={electrical}
                      alt="Third slide"
+                     type="button"
+                     onClick={() => { setService2("Electrical") }}
                   />
+
                </Carousel.Item>
+
             </Carousel>
          </div>
 
@@ -163,28 +169,37 @@ const Home = () => {
                </div>
                <div class="row">
                   <div class="col-md-8 service_blog">
-                     <img id="air" class="margin_top_10 img-responsive" src={air} />
-                     <h3 class="blog_head">Air condition</h3>
+                     <a href="" onClick={() => { setService2("Air condition") }}>   <img id="air" class="margin_top_10 img-responsive" src={air} /> </a>
+                     <h3 id="1" >Air condition</h3>
                      <br /><br /><br /><br />
                   </div>
-                  <div class="col-md-8 service_blog">
-                     <img class="margin_top_10 img-responsive" src={electrical2} />
-                     <h3 class="blog_head">Elictrical</h3>
-                     <br /><br /><br /><br />
-                  </div>
-                  <div class="col-md-8 service_blog">
-                     <img class="margin_top_10 img-responsive" src={electronic} />
-                     <h3 class="blog_head">Elecronic Devices</h3>
-                     <br /><br /><br /><br />
-                  </div>
-                  <div class="col-md-8 service_blog">
-                     <img class="margin_top_10 img-responsive" src={Sterilization} />
-                     <h3 class="blog_head">Sterilization</h3>
-                     <br /><br /><br /><br />
-                  </div>
+                  <a href="" onClick={() => { setService2("Electrical") }}>
+                     <div class="col-md-8 service_blog">
+                        <img class="margin_top_10 img-responsive" src={electrical2} />
+                        <h3 id="2" >Electrical</h3>
+                        <br /><br /><br /><br />
+                     </div>
+                  </a>
+                  <a href="" onClick={() => { setService2("Elecronic Devices") }} >
+                     <div class="col-md-8 service_blog">
+                        <img class="margin_top_10 img-responsive" src={electronic} />
+                        <h3 id="3" >Elecronic Devices</h3>
+                        <br /><br /><br /><br />
+                     </div>
+                  </a>
+                  <a href="" onClick={() => { setService2("Sterilization") }} >
+                     <div class="col-md-8 service_blog">
+                        <img class="margin_top_10 img-responsive" src={Sterilization} />
+                        <h3 id="4" >Sterilization</h3>
+                        <br /><br /><br /><br />
+                     </div>
+                  </a>
                </div>
             </div>
          </div>
+
+
+
          <div id="wcs" class="hiw_section layout_padding">
             <div class="container">
                <div class="row">
@@ -255,7 +270,7 @@ const Home = () => {
          </div>
 
 
-         {/* {service ? navigate("/services/" + service) : ""} */}
+         {service2 ? navigate("/services/" + service2) : ""}
 
 
 
