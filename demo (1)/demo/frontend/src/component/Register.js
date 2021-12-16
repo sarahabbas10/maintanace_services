@@ -101,16 +101,3 @@ function Register() {
 }
 export default Register;
 
-{/* <div class="sign-up-form">
-                <div class="group">
-                    <div class="group">  <label for="user" class="label">Name</label> <input id="user" type="text" class="input" placeholder="Enter your name" onChange={(e) => setName(e.target.value)} /> </div>
-                    <div class="group"> <label for="user" class="label">Phone number</label> <input id="user" type="text" class="input" placeholder="Enter your phone number" onChange={(e) => setPhoneNo(e.target.value)} /> </div>
-                    <div class="group"> <label for="pass" class="label">Password</label> <input id="pass" type="password" class="input" data-type="password" placeholder="Create your password" onChange={(e) => setPassword(e.target.value)} /> </div>
-                    <div class="group"> <label for="pass" class="label">Repeat Password</label> <input id="pass" type="password" class="input" data-type="password" placeholder="Repeat your password" /> </div>
-                    <div class="group"> <label for="user" class="label">Address</label> <input id="user" type="text" class="input" placeholder="Enter your address" onChange={(e) => setAddress(e.target.value)} /> </div>
-
-                    <div class="group"> <input type="submit" class="button" value="Sign Up" onClick={clickBtn} /> </div>
-
-
-                </div>
-            </div> */}

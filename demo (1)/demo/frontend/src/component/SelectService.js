@@ -24,28 +24,28 @@ function SelectService({ selectMaintenanceService }) {
     const [date, setDate] = useState();
     const [requestState, setRequestState] = useState();
     const [service_enrolled, setService_enrolled] = useState([]);
-   
+
 
     useEffect(() => {
         console.log(selectMaintenanceService);
         axios
             .get(`http://localhost:8080/maintenanceService/service/` + selectMaintenanceService)
-            .then((response) => setServices(response.data) )
+            .then((response) => setServices(response.data))
             .catch((error) => console.log(error));
 
-            if(selcetService){
+        if (selcetService) {
             axios
-            .get(`http://localhost:8080/serviceType/` + selcetService)
-            .then((response) => setIdServiceType(response.data.idServiceType) )
-            .catch((error) => console.log(error));
-            }
+                .get(`http://localhost:8080/serviceType/` + selcetService)
+                .then((response) => setIdServiceType(response.data.idServiceType))
+                .catch((error) => console.log(error));
+        }
 
-    }, [selectMaintenanceService,selcetService]);
+    }, [selectMaintenanceService, selcetService]);
 
     function selectServiceType(e) {
         console.log(e.target.value);
         setSelcetService(e.target.value);
-       
+
     }
 
     const selectDate = (e) => {
@@ -64,41 +64,41 @@ function SelectService({ selectMaintenanceService }) {
         setComment(e.target.value);
 
     }
-    let request={};
+    let request = {};
     const clickBtn = (e) => {
 
-        
-       console.log("idServiceType: "+idServiceType);
-       console.log("requestState: " +requestState);
-       console.log("date: " +date);
-       console.log("time: " +time);
-       console.log("idCustomer: " +idCustomer);
-       console.log("comment: " +comment);
-       console.log("idServiceType: " +idServiceType);
-       
-        if (requestState && date && time && comment && idCustomer & idServiceType){
-            request = { requestState, date, time, comment };
-       
-        console.log(request);
+
+        console.log("idServiceType: " + idServiceType);
+        console.log("requestState: " + requestState);
         console.log("date: " + date);
         console.log("time: " + time);
-        console.log("Comment: " + comment);
-        console.log("reguest:" + request);
         console.log("idCustomer: " + idCustomer);
-        console.log("idServiceType:" + idServiceType);
+        console.log("comment: " + comment);
+        console.log("idServiceType: " + idServiceType);
 
-        e.preventDefault()
-        const confiermRequest = { request, idCustomer, idServiceType }
+        if (requestState && date && time && comment && idCustomer & idServiceType) {
+            request = { requestState, date, time, comment };
 
-        console.log(confiermRequest)
-        fetch("http://localhost:8080/request/newRequest", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(confiermRequest)
-        }).then(() => {
-            console.log("New Request Added")
-        })
-    }
+            console.log(request);
+            console.log("date: " + date);
+            console.log("time: " + time);
+            console.log("Comment: " + comment);
+            console.log("reguest:" + request);
+            console.log("idCustomer: " + idCustomer);
+            console.log("idServiceType:" + idServiceType);
+
+            e.preventDefault()
+            const confiermRequest = { request, idCustomer, idServiceType }
+
+            console.log(confiermRequest)
+            fetch("http://localhost:8080/request/newRequest", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(confiermRequest)
+            }).then(() => {
+                console.log("New Request Added")
+            })
+        }
     }
 
 
@@ -106,8 +106,58 @@ function SelectService({ selectMaintenanceService }) {
 
     return (
         <>
+            <div class="form-holder">
+                <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" required onChange={selectServiceType}>
+                    <option selected>Choose...</option>
+                    {services ? services.map((element) => {
+                        return <option id="op1">{element.name}</option>
+                    }) : ""}
+                </select>
+            </div>
+            <div class="form-wrapper">
+                <label >Selcet the time to recive servises</label>
+                <div class="form-holder">
+                    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" onChange={selectTime}>
+                        <option selected>Choose...</option>
+                        <option >10 am </option>
+                        <option >11 am</option>
+                        <option >1 pm </option>
+                        <option >2 pm</option>
+                        <option >3 pm </option>
+                        <option >4 pm</option>
+                        <option >5 pm </option>
+                        <option >6 pm</option>
+                        <option >7 pm </option>
+                        <option >8 pm</option>
+                        <option >9 pm </option>
+                        <option >10 pm</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-wrapper">
+                <label >Date</label>
+                <div class="form-holder">
+                    <input class="order-form-input datepicker" placeholder="Selected date" type="date"
+                        id="date-picker-example" onChange={selectDate} />
+                </div>
+            </div>
 
-            <div class="col-12">
+            <div class="form-wrapper">
+                <label for="">comments</label>
+                <div class="form-holder">
+                    <textarea class="order-form-input datepicker" placeholder="write you comment here" type="text-area"
+                        id="date-picker-example" onChange={selectComment} />
+                </div>
+            </div>
+            <div class="button-holder">
+                <button onClick={clickBtn}>Confirm Order</button>
+            </div>
+        </>
+    )
+}
+export default SelectService;
+
+{/* <div class="col-12">
                 <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" required onChange={selectServiceType}>
                     <option selected>Choose...</option>
                     {services ? services.map((element) => {
@@ -161,9 +211,5 @@ function SelectService({ selectMaintenanceService }) {
                 <div class="col-12">
                     <button type="button" id="btnSubmit" class="btn btn-dark d-block mx-auto btn-submit" onClick={clickBtn}>Submit</button>
                 {/* {idServiceType ? <ConfirmOrder idServiceType={idServiceType} time={time} date={data}  comment={comment} />:""} */}
-                </div>
-            </div>
-        </>
-    )
-}
-export default SelectService;
+            //     </div>
+            // </div> */}

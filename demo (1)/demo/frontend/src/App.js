@@ -29,11 +29,9 @@ function App() {
           <Route path="/Reviews" element={<Reviews />} />
           <Route path="/Reviews/1" element={<Review />} />
           <Route path="/myRequests" element={<Requests />} />
-          {/* <Route path="/Requests/:phoneNo" element={<Request />} /> */}
           <Route path="/register" element={<Register />} />
           <Route path="/new_request" element={<NewRequest />} />
           <Route path="/services/:service" element={<ServiceType />} />
-          {/* <Route path="new_request/serviceType/:phoneNo" element={<ServiceType />} /> */}
           <Route path="/navbar" element={<Navbar />} />
           <Route path="/home" element={<Home />} />
       </Routes>

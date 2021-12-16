@@ -1,26 +1,73 @@
+import './service.css'
+import axios from "axios";
+import { useState, useEffect } from "react";
+import ServiceType from './ServiceType';
 
-    
-function MaintenanceService({maintenanceService}){
+import { useNavigate } from 'react-router-dom';
 
- return(
-     <>
-     <div _ngcontent-uey-c3="" class="col-md-4">
-         <div _ngcontent-uey-c3="" class="services-list">
-             <div _ngcontent-uey-c3="" class="appliances">
-                 <div _ngcontent-uey-c3="" class="appliances-slider">
-                     <div _ngcontent-uey-c3="" class="appliances-img-holder">
-                         <img _ngcontent-uey-c3="" class="main-img" src={maintenanceService.imgUrl}/>
-                         <button _ngcontent-uey-c3="">
-                             <img _ngcontent-uey-c3="" src="https://firebasestorage.googleapis.com/v0/b/quickfix-2014e.appspot.com/o/Subcategory%2FAdmin1618575353944Split.png?alt=media&amp;token=9fc82c54-16cd-45d7-a307-43ba963ea9fc"/>
-                                 </button>
-                                 </div>
-                                 <h3 _ngcontent-uey-c3="">{maintenanceService.name}</h3>
-                                 <a _ngcontent-uey-c3="">
-                                     <button _ngcontent-uey-c3="">view detail</button></a></div>
-                                     </div>
-                                     </div>
-                                     </div>
-     </>
- )
+function MaintenanceService({ maintenanceService }) {
+
+    const navigate = useNavigate();
+    const [service, setService] = useState();
+    const [reviews, setReviews] = useState([])
+    const [selectService, setSelectService] = useState();
+
+    const go = (e) => {
+        setService(maintenanceService.name);
+        console.log(service);
+    }
+
+    useEffect(() => {
+        axios
+            .get(`http://localhost:8080/maintenanceService/reviews/` + maintenanceService.name)
+            .then((response) => setReviews(response.data))
+            .catch((error) => console.log(error));
+    }, [maintenanceService]);
+
+
+    const show = (e) => {
+        let reviewDiv  = document.getElementById("myReview");
+   
+        if (reviewDiv.style.display === "none" && reviews) {
+          reviewDiv.style.display = "block";
+      
+        } else {
+          reviewDiv.style.display = "none";
+      
+        }
+        console.log("reviews: " + reviews);
+    }
+
+
+    return (
+        <>
+
+
+            <button onClick={go} class="card-hover py-4 text-center d-block rounded" >
+                <span class="bg-success-grediant"> <img _ngcontent-uey-c3="" src={maintenanceService.imgUrl} />                    </span>
+                <h6 class="ser-title">{maintenanceService.name}</h6>
+
+
+            </button>
+            <button onClick={show}>show Review </button>
+            {reviews ?
+                reviews.map((e) => {
+                    return (
+                        <>
+                        <div id="myReview"  style={{display : "none"}}>
+                            <h5>{e.comment}</h5>
+                            <h5>{e.customer.name}</h5>
+                            </div>
+                        </>
+                    )
+
+                })
+                : <h1>no review</h1>}
+
+
+            {service ? navigate("/services/" + service) : ""}
+
+        </>
+    )
 }
 export default MaintenanceService;

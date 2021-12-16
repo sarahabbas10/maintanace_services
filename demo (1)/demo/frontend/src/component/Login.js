@@ -32,17 +32,20 @@ function Login() {
 
 
     const log = () => {
-        axios
-            .get(`http://localhost:8080/customer/${phoneNo}`)
-            .then((response) => {
-                const action = addCustomer(response.data)
-                dispatch(action)
-                console.log("yes");
-               
-            })
-            .catch((error) =>
-                console.log(error));
-                navigate("/home");
+        if (phoneNo) {
+            axios
+                .get(`http://localhost:8080/customer/${phoneNo}`)
+                .then((response) => {
+                    const action = addCustomer(response.data)
+                    dispatch(action)
+                    console.log("yes");
+
+                })
+                .catch((error) =>
+                    console.log(error));
+            navigate("/home");
+
+        }
     }
 
     return (
@@ -65,18 +68,18 @@ function Login() {
                             <label ><BsFileLock2Fill /> Password</label>
                             <div className="form-holder">
                                 <input type="password" className="form-control" placeholder="Enter your password" />
-                                
+
                             </div>
                         </div>
                     </div>
                     <div className="form-end">
 
-                    <div class="button-holder">
-							<button onClick={()=>{navigate("/register")}}>Register Now</button>
-						</div>
-						<div class="button-holder">
-							<button  onClick={log} >Login</button>
-						</div>
+                        <div class="button-holder">
+                            <button onClick={() => { navigate("/register") }}>Register Now</button>
+                        </div>
+                        <div class="button-holder">
+                            <button onClick={log} >Login</button>
+                        </div>
                     </div>
                 </form>
             </div>

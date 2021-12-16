@@ -1,5 +1,5 @@
 import './style.css';
-import logo from './imgs/logo.png';
+import logo from './imgs/logo2.png';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 
 
@@ -33,27 +33,26 @@ function Navbar() {
       if (state.customer.idCustomer) {
          navigate("/myRequests");
       }
-      // else navigate("/login")
+      //  else navigate("/login")
    }
 
    const newRequest = (e) => {
       if (state.customer.idCustomer) {
          navigate("/new_request");
       }
-      // else navigate("/login")
+   //   else navigate("/login")
    }
 
    const registerCustomer = () => {
       navigate("/register");
    }
 
-
    return (
       <>
          <div id="header" class="header">
             <nav class="navbar navbar-expand-lg navbar-light text-capitalize">
                <div class="container">
-                  <a class="navbar-brand" href="#"><img src={logo} /></a>
+                  <img src={logo} className='logoImg' />
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#show-menu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                      <span class="navbar-toggler-icon"></span>
                   </button>
@@ -87,7 +86,7 @@ function Navbar() {
                               <Offcanvas.Body>
 
                                  <a class="nav-link" href="#hiw" onClick={newRequest}>New Request</a>
-                                 <a class="nav-link" href="" onClick={myProfile}>My Profile</a>
+                                 <a class="nav-link" href="#hiw" onClick={myProfile}>My Profile</a>
                                  <a class="nav-link" href="#hiw" onClick={myRequest}>My Request </a>
 
                               </Offcanvas.Body>
