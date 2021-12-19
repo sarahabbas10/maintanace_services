@@ -1,0 +1,25 @@
+.row{
+    margin-top: 5%;
+}
+
+
+.col-sm-3{ 
+    margin-top: 5%;
+    margin: 3%;
+}
+
+  .card-img-top{
+    height: 180px;
+     width: 100%;
+      display: block;
+  }
+
+
+  .card-title{
+      text-align: center;
+  }
+
+  .btn-card{
+      margin: 20%;
+      margin-right: 20%;
+  }

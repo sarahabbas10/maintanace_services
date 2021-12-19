@@ -66,9 +66,9 @@ const Home = () => {
 
 
    function selectService(e) {
-      setService(e.target.value)
+      setService2(e.target.value)
       allMaintenanceServices.map((e) => {
-         if (e.name == service)
+         if (e.name == service2)
             setIdMaintenanceService(e.idService);
       })
 
@@ -149,7 +149,7 @@ const Home = () => {
                      src={electrical}
                      alt="Third slide"
                      type="button"
-                     onClick={() => { setService2("Electrical") }}
+                     onClick={() => { setService("Electrical") }}
                   />
 
                </Carousel.Item>
@@ -169,25 +169,25 @@ const Home = () => {
                </div>
                <div class="row">
                   <div class="col-md-8 service_blog">
-                     <a href="" onClick={() => { setService2("Air condition") }}>   <img id="air" class="margin_top_10 img-responsive" src={air} /> </a>
+                     <a href="" onClick={() => { setService("Air condition") }}>   <img id="air" class="margin_top_10 img-responsive" src={air} /> </a>
                      <h3 id="1" >Air condition</h3>
                      <br /><br /><br /><br />
                   </div>
-                  <a href="" onClick={() => { setService2("Electrical") }}>
+                  <a href="" onClick={() => { setService("Electrical") }}>
                      <div class="col-md-8 service_blog">
                         <img class="margin_top_10 img-responsive" src={electrical2} />
                         <h3 id="2" >Electrical</h3>
                         <br /><br /><br /><br />
                      </div>
                   </a>
-                  <a href="" onClick={() => { setService2("Elecronic Devices") }} >
+                  <a href="" onClick={() => { setService("Electronic devices") }} >
                      <div class="col-md-8 service_blog">
                         <img class="margin_top_10 img-responsive" src={electronic} />
                         <h3 id="3" >Elecronic Devices</h3>
                         <br /><br /><br /><br />
                      </div>
                   </a>
-                  <a href="" onClick={() => { setService2("Sterilization") }} >
+                  <a href="" onClick={() => { setService("Sterilization") }} >
                      <div class="col-md-8 service_blog">
                         <img class="margin_top_10 img-responsive" src={Sterilization} />
                         <h3 id="4" >Sterilization</h3>
@@ -270,9 +270,8 @@ const Home = () => {
          </div>
 
 
-         {service2 ? navigate("/services/" + service2) : ""}
-
-
+     
+         {service ? navigate("/services/" + service) : ""}
 
       </>
    )

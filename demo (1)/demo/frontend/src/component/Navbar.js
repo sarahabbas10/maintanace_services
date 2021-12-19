@@ -26,21 +26,21 @@ function Navbar() {
       if (state.customer.idCustomer) {
          navigate("/myAccount");
       }
-      // else navigate("/login")
+      else navigate("/login")
    }
 
    const myRequest = (e) => {
       if (state.customer.idCustomer) {
          navigate("/myRequests");
       }
-      //  else navigate("/login")
+      else navigate("/login")
    }
 
    const newRequest = (e) => {
       if (state.customer.idCustomer) {
          navigate("/new_request");
       }
-   //   else navigate("/login")
+   else navigate("/login")
    }
 
    const registerCustomer = () => {
@@ -59,19 +59,19 @@ function Navbar() {
                   <div class="collapse navbar-collapse" id="show-menu">
                      <ul class="navbar-nav ml-auto">
                         <li class="nav-item active">
-                           <a class="nav-link" href="#home">Home</a>
+                           <a class="nav-link" href="/Home">Home</a>
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="#about">About</a>
+                           <a class="nav-link" href="/Home#about">About</a>
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="#service">Service</a>
+                           <a class="nav-link" href="/Home#service">Service</a>
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="#wcs">What Clients Say</a>
+                           <a class="nav-link" href="/Home#wcs">What Clients Say</a>
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="#contact">Contact</a>
+                           <a class="nav-link" href="/Home#contact">Contact</a>
                         </li>
                         <li class="nav-item">
                            <a class="nav-link" href="" onClick={registerCustomer} >Login/Register</a>

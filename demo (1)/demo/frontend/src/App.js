@@ -31,7 +31,7 @@ function App() {
           <Route path="/myRequests" element={<Requests />} />
           <Route path="/register" element={<Register />} />
           <Route path="/new_request" element={<NewRequest />} />
-          <Route path="/services/:service" element={<ServiceType />} />
+          <Route path="/services/:service2" element={<ServiceType />} />
           <Route path="/navbar" element={<Navbar />} />
           <Route path="/home" element={<Home />} />
       </Routes>
