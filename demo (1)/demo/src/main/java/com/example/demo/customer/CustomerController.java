@@ -36,10 +36,10 @@ public class CustomerController {
 
     }
 
-    @PostMapping
-    public Customer register(@RequestBody Customer customer){
-        return customerService.register(customer);
-    }
+//    @PostMapping
+//    public Customer register(@RequestBody Customer customer){
+//        return customerService.register(customer);
+//    }
 
     @PostMapping("/login")
     public  Customer login(@RequestBody Customer customer){
@@ -52,5 +52,26 @@ public class CustomerController {
         customerService.updateCustomer(id, data);
     }
 
+    @PostMapping
+    public Customer register(@RequestBody Form form){
 
+        return customerService.register(form);
+    }
+
+
+}
+
+class Form {
+
+
+    private Customer customer;
+    private Long role_id;
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public Long getRole_id() {
+        return role_id;
+    }
 }

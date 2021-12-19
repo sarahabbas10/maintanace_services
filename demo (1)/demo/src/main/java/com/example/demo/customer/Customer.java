@@ -1,5 +1,6 @@
 package com.example.demo.customer;
 
+import com.example.demo.Role.Role;
 import com.example.demo.review.Review;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.example.demo.Request.Request;
@@ -22,12 +23,26 @@ private String name;
 private String password;
 private String address;
 
-    public Customer(Long idCustomer, String phoneNo, String name, String password, String address) {
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    private List<Role> roles = new ArrayList<>();
+
+    public Customer(Long idCustomer, String phoneNo, String name, String password, String address, List<Role> roles) {
         this.idCustomer = idCustomer;
         this.phoneNo = phoneNo;
         this.name = name;
         this.password = password;
         this.address = address;
+        this.roles = roles;
+        this.reviews = reviews;
+        this.requests = requests;
     }
 
     @OneToMany(mappedBy = "customer")
