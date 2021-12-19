@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom';
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import './myRequest.css'
+import Footer from "./Footer";
+import Navbar from "./Navbar";
 function Requests() {
   // console.log("In Requests");
   const [allRequests, setAllRequests] = useState([]);
@@ -28,7 +30,10 @@ function Requests() {
 
 
   return (
-    <> {allRequests.map((element) => {
+    <> 
+    
+    <Navbar/>
+    {allRequests.map((element) => {
       return (
         <>
           <div class="wrapper" style={{ backgroundImage: `url("https://np-concrete.com/wp-content/uploads/2016/04/general3-1.jpg")` }}>
@@ -64,6 +69,7 @@ function Requests() {
         </>
       )
     })}
+    <Footer/>
     </>
   )
 }

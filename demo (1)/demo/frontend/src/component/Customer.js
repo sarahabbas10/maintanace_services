@@ -9,6 +9,8 @@ import { BsFillPersonFill } from "react-icons/bs";
 import { BsHouseDoorFill } from "react-icons/bs";
 import { BsFileLock2Fill } from "react-icons/bs";
 import './customer.css'
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 function Customer() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -86,6 +88,7 @@ function Customer() {
     return (
 
         <>
+        <Navbar/>
             {state.customer.idCustomer ?
                 <div class="wrapper" style={{ backgroundImage: `url("https://fullcirclehomecare.com/wp-content/uploads/2016/07/Handyman-Repairs.jpg")` }}>
                     <div class="inner">
@@ -125,6 +128,8 @@ function Customer() {
                 </div>
 
                 : navigate("/")}
+
+                <Footer/>
         </>
     )
 }

@@ -2,7 +2,7 @@ import Navbar from './Navbar'
 import './style.css'
 import axios from "axios";
 import slide1 from './imgs/slide1.png'
-
+import about from "./imgs/about.png" 
 import electrical from './imgs/electrical header.jpg'
 import electrical2 from './imgs/elictrical.jpg'
 import electronic from './imgs/electronic.jpg'
@@ -19,6 +19,7 @@ import Carousel from 'react-bootstrap/Carousel'
 import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import Footer from './Footer';
 
 const Home = () => {
 
@@ -101,10 +102,6 @@ const Home = () => {
 
       }
    }
-   // const goToServicesPage=(e)=>{
-   //    console.log(e.target.value);
-   //    setService(e.target.value);
-   // }
 
    return (
       <>
@@ -156,7 +153,24 @@ const Home = () => {
 
             </Carousel>
          </div>
+         <div id="about" class="about_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-5">
+                  <h4>ABOUT QUICK SERVICES</h4>
+                  <h3 style={{"text-transform": "none" }}>We Build for Your Comfort</h3>
+                  <p>With regards to your home enhancement extends our skilled workers have the mastery to take care of business and done right. Every single one of our experts has more than ten years of experience and have all experienced intensive individual verification.
 
+The group of experts at ‘Organization Name’ of New York is enthusiastic about taking your home enhancement dreams and making them a reality.
+</p>      </div>
+               <div class="col-md-6 offset-md-1">
+                  <div class="full text_align_center">
+                     <img class="img-responsive" src={about}alt="#" />
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
          <div id="service" class="hiw_section layout_padding">
             <div class="container">
                <div class="row">
@@ -272,6 +286,7 @@ const Home = () => {
 
      
          {service ? navigate("/services/" + service) : ""}
+<Footer/>
 
       </>
    )

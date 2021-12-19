@@ -12,6 +12,7 @@ import NewRequest from './component/NewRequest';
 import ServiceType from './component/ServiceType';
 import Navbar from './component/Navbar';
 import Home from './component/Home';
+import Footer from './component/Footer';
 function App() {
  
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route path="/services/:service2" element={<ServiceType />} />
           <Route path="/navbar" element={<Navbar />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/footer" element={<Footer />} />
       </Routes>
       </div>
 
