@@ -30,14 +30,17 @@ public class ServiceTypeController {
         return serviceTypeService.getServiceType(name);
     }
 
-    @PutMapping("/{id}")
-    public void updateServiceType(@PathVariable String id, @RequestBody Form form) {
-        serviceTypeService.updateServiceType(id,form.getServiceType(),form.getIdMaintenanceService());
+    @PutMapping("service/{id}")
+    public void updateServiceType(@PathVariable String id, @RequestBody ServiceType serviceType) {
+        serviceTypeService.updateServiceType(id,serviceType);
     }
+
+
     @DeleteMapping("/{id}")
     public void deleteServiceType(@PathVariable String id) {
         serviceTypeService.deleteServiceType(id);
     }
+
     @PostMapping
     public ServiceType addServiceType(@RequestBody Form form){
         return serviceTypeService.addServiceType(form.getServiceType(),form.getIdMaintenanceService());

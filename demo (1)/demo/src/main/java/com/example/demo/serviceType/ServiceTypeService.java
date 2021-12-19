@@ -35,14 +35,12 @@ public class ServiceTypeService {
         return serviceTypeRepository.save(serviceType);
     }
 
-    public void updateServiceType(String id, ServiceType data,Long idMaintenanceService) {
+    public void updateServiceType(String id, ServiceType data) {
         Long service_id = Long.parseLong(id);
         ServiceType serviceType = serviceTypeRepository.findById(service_id).orElse(null);
         if (data != null)
             serviceType.setName(data.getName());
-        serviceType.setImgUrl(data.getImgUrl());
-        MaintenanceService maintenanceServiceController=maintenanceServiceRepository.findById(idMaintenanceService).orElse(null);
-        serviceType.setMaintenanceService(maintenanceServiceController);
+            serviceType.setImgUrl(data.getImgUrl());
 
         serviceTypeRepository.save(data);
     }
