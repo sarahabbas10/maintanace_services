@@ -38,7 +38,7 @@
   <h3 align="center">Quick Services website </h3>
 
  
-
+</div>
 
 
 <!-- TABLE OF CONTENTS -->
