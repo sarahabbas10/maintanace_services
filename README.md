@@ -31,10 +31,10 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="imgs/logo2.png" alt="Logo" width="80" height="80">
-  </a>
+ 
+    <img src="demo (1)/demo/frontend/src/component/imgs/logo2.png" alt="Logo" width="80" height="80">
 
+ 
   <h3 align="center">Best-README-Template</h3>
 
   <p align="center">
